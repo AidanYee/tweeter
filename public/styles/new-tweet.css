@@ -1,0 +1,49 @@
+/* child of .new-tweet */
+.new-tweet > form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* text area + title */
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* text area box */
+.new-tweet textarea {
+  display: flex;
+  border-style: none;
+  resize: none;
+  border-bottom: 5px solid #3a3832;
+  font-weight: 700;
+  background-color: inherit;
+  width: 100%;
+  color: #3a3832;
+}
+
+/* space between text area box + button/counter */
+.new-tweet div {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-top: 2.5%;
+}
+
+.new-tweet button {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bungee", cursive;
+  background-color: #4056a1;
+  color: #f4f1ec;
+}
+
+.counter {
+  display: flex;
+  font-family: Bungee, sans-serif;
+  justify-content: flex-end;
+  color: #3a3832;
+}
