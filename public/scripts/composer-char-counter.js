@@ -1,3 +1,5 @@
+// need to come back and impliment this function using 'this' instead of '.counter'
+
 $(document).ready(function() {
   $("textarea").keyup(onKeyUp);
 });
