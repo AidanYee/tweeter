@@ -1,5 +1,16 @@
 $(document).ready(function() {
-  // --- our code goes here ---
+  $("textarea").keyup(onKeyUp);
 });
-console.log("🚀 ~ file: composer-char-counter.js ~ line 2 ~ test", test);
 
+const onKeyUp = function() {
+  const tweetLength = $("textarea").val().length;
+  const remainingChar = 140 - tweetLength;
+  $(".counter").html(remainingChar);
+  if (remainingChar < 0) {
+    //css color red
+    $(".counter").css("color", "red");
+  } else {
+    //css color black
+    $(".counter").css("color", "#3a3832");
+  }
+};
