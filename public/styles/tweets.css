@@ -5,3 +5,66 @@
   width: 95%;
   padding: 0.5em;
 }
+
+.tweet {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1.5em 1.5em;
+  border-bottom: 3px solid black;
+}
+
+.handle {
+  color: grey;
+}
+
+.social-icons {
+  color: #4056a1;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 3px solid black;
+  margin: 20px;
+}
+
+article > header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0em 0.5em;
+}
+
+article > header > p {
+  margin-right: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+article > footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5em 0.5em;
+  padding-bottom: 0.5em;
+}
+
+/* Tweet box shadow */
+article:hover {
+  box-shadow: 10px 10px;
+}
+
+/* report..? idk button */
+i.fa.fa-flag:hover {
+  color: #c8a700;
+}
+/* re-tweet button */
+i.fa.fa-retweet:hover {
+  color: #c8a700;
+}
+/* like button */
+i.fa.fa-heart:hover {
+  color: #c8a700;
+}
