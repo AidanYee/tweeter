@@ -34,6 +34,14 @@ const tweetData = [
 
 
 const createTweetElement = function(userData) {
+  
+  let dateCreated = new Date(userData.created_at);
+  let today = new Date();
+
+  let timeDiff = Math.abs(today.getTime() - dateCreated.getTime());
+  let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  
+  
   let $tweet = $(`
   <article>
       <header class="tweet-header">
@@ -45,7 +53,7 @@ const createTweetElement = function(userData) {
           ${userData.content.text}
         </div>
           <footer class="tweet-footer">
-            <span> ${userData.created_at}</span>
+            <span>  ${diffDays === 1 ? `${diffDays} day ago` : `${diffDays} days ago`}</span>
             <div>
               <span class='social-icons'>
                 <i class="fa fa-flag" aria-hidden="true"></i>
