@@ -1,7 +1,7 @@
 nav {
   font-family: "Bungee", cursive;
-  color: #ffffff;
-  background-color: #4056a1;
+  color: #8be9fd;
+  background-color: #282a36;
   display: flex;
   height: 120px;
   width: 100%;
@@ -16,6 +16,7 @@ nav {
   display: flex;
   font-family: "Bungee", cursive;
   font-size: 1.5em;
+  color: #ff79c6;
 }
 
 .newTweet {
@@ -28,6 +29,6 @@ nav {
 }
 
 .arrow {
-  color: red;
+  color: #6272a4;
   padding-top: 10px;
 }

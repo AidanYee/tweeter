@@ -18,7 +18,7 @@
   display: flex;
   border-style: none;
   resize: none;
-  border-bottom: 5px solid #3a3832;
+  border-bottom: 5px solid #6272a4;
   font-weight: 700;
   background-color: inherit;
   width: 100%;
@@ -37,8 +37,18 @@
   display: flex;
   justify-content: space-between;
   font-family: "Bungee", cursive;
-  background-color: #4056a1;
-  color: #f4f1ec;
+  background-color: #ff79c6;
+  color: #f8f8f2;
+  border: 2px solid #ff79c6;
+  border-radius: 4px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.new-tweet button:hover {
+  background-color: #282a36; /* Green */
+  color: white;
+  border: 2px solid #ff79c6;
 }
 
 .counter {

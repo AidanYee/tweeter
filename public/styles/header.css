@@ -1,14 +1,14 @@
 .main-header {
   display: flex;
-  height: 500px;
+  height: 100%;
   width: 100%;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 25%;
-  background-color: #001221;
-  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  padding-top: 15%;
+  background-color: #383a59;
+  /* background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png"); */
   row-gap: 0px;
   text-align: center;
-  color: #ffffff;
+  color: #ff79c6;
 }
