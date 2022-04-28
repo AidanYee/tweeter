@@ -21,9 +21,18 @@
   color: #bd93f9;
 }
 
+.tweet-header p {
+  color: #ff79c6;
+}
+
+.time-ago {
+  color: #bd93f9;
+}
+
 article {
   display: flex;
   flex-direction: column;
+  background-color: #383a59;
   width: 100%;
   border: 3px solid #6272a4;
   margin: 20px;

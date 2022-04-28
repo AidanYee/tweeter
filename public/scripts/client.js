@@ -24,7 +24,7 @@ const createTweetElement = function(data) {
           <p>${escape2(data.content.text)}</p>
         </div>
           <footer class="tweet-footer">
-            <span> ${timeago.format(data.created_at)}</span>
+            <span class='time-ago'>${timeago.format(data.created_at)}</span>
             <div>
               <span class='social-icons'>
                 <i class="fa fa-flag" aria-hidden="true"></i>
@@ -94,9 +94,9 @@ $(document).ready(function() {
     // creates a text string in standard URL-encoded notation
       let serialData = $(this).serialize();
       // ajax post request
-      $.post("/tweets",serialData)  .done(()=> {
+      $.post("/tweets",serialData).done(()=> {
       // ajax get request
-        $.get("/tweets", function(data, status) {
+        $.get("/tweets", function(data) {
         // displays new tweets
           renderTweets(data);
         });
