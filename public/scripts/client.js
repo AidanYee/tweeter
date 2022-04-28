@@ -7,35 +7,35 @@
 
 
 // Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
+// const tweetData = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ];
 
 
-const createTweetElement = function(userData) {
+const createTweetElement = function(data) {
   
-  let dateCreated = new Date(userData.created_at);
+  let dateCreated = new Date(data.created_at);
   let today = new Date();
 
   let timeDiff = Math.abs(today.getTime() - dateCreated.getTime());
@@ -45,12 +45,12 @@ const createTweetElement = function(userData) {
   let $tweet = $(`
   <article>
       <header class="tweet-header">
-         <img src = "${userData.user.avatars}"></img>
-            <p> ${userData.user.name} </p>
-            <span class ="handle">${userData.user.handle}</span>
+         <img src = "${data.user.avatars}"></img>
+            <p> ${data.user.name} </p>
+            <span class ="handle">${data.user.handle}</span>
       </header>
         <div class = "tweet">
-          ${userData.content.text}
+          ${data.content.text}
         </div>
           <footer class="tweet-footer">
             <span>  ${diffDays === 1 ? `${diffDays} day ago` : `${diffDays} days ago`}</span>
@@ -68,43 +68,33 @@ const createTweetElement = function(userData) {
 
 };
 
-const renderTweets = function(tweetData) {
-  for (let tweet of tweetData) {
+const renderTweets = function(data) {
+  for (let tweet of data) {
     $('.tweet-container').prepend(createTweetElement(tweet));
   }
 
 };
 
+const loadTweets = () => {
+  $.ajax({
+    type: "GET",
+    url: "/tweets/",
+    success: (response) => {
+      renderTweets(response);
+    },
+  });
+};
+
+
 $(document).ready(function() {
-  renderTweets(tweetData);
-
-  // $("form").submit(function (event) {
-  //   event.preventDefault();
-  // });
-
+  //renderTweets(tweetData);
   
   $('#new-tweet-submit').submit(function(event) {
-    alert("Handler for .submit() called.");
+    //alert("Handler for .submit() called.");
     event.preventDefault();
     let serialData = $(this).serialize();
-    console.log("🚀 ~ file: client.js ~ line 90 ~ $ ~ serialData", serialData);
-    $.post("/tweets",serialData)
-      .done(()=> {
-        $.get("/tweets", function(data, status) {
-          renderTweets(data);
-        });
-
-      });
+    $.post("/tweets",serialData);
+    loadTweets();
   });
-
   
 });
-
-
-
-
-// add an event listener that listens for the submit event - done
-
-// prevent the default behaviour of the submit event (data submission and page refresh) - done
-
-// create an AJAX POST request in client.js that sends the form data to the server.
