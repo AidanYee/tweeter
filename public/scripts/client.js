@@ -51,6 +51,12 @@ const loadTweets = () => {
   });
 };
 
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 
 $(document).ready(function() {
   //renders all tweets
@@ -59,18 +65,28 @@ $(document).ready(function() {
   $('#new-tweet-submit').submit(function(event) {
     // stops the regular form post method from firing
     event.preventDefault();
-    // creates a text string in standard URL-encoded notation
-    let serialData = $(this).serialize();
-    // ajax post request
-    $.post("/tweets",serialData)  .done(()=> {
-      // ajax get request
-      $.get("/tweets", function(data, status) {
-        // displays new tweets
-        renderTweets(data);
-      });
 
-    });
-    
+    const textArea = $(this).children("textarea");
+    console.log("🚀 ~ file: client.js ~ line 64 ~ $ ~ textArea", textArea);
+    const inputText = textArea.val();
+    console.log("🚀 ~ file: client.js ~ line 66 ~ $ ~ inputText", inputText);
+
+    if (!inputText) {
+      return alert("Go on...type someting!");
+    } else if (inputText.length > 140) {
+      return alert("Go on...type someting!");
+    } else {
+    // creates a text string in standard URL-encoded notation
+      let serialData = $(this).serialize();
+      // ajax post request
+      $.post("/tweets",serialData)  .done(()=> {
+      // ajax get request
+        $.get("/tweets", function(data, status) {
+        // displays new tweets
+          renderTweets(data);
+        });
+
+      });
+    }
   });
-  
 });
