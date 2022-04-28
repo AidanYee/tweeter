@@ -70,11 +70,41 @@ const createTweetElement = function(userData) {
 
 const renderTweets = function(tweetData) {
   for (let tweet of tweetData) {
-    $('.tweet-container').append(createTweetElement(tweet));
+    $('.tweet-container').prepend(createTweetElement(tweet));
   }
 
 };
 
 $(document).ready(function() {
   renderTweets(tweetData);
+
+  // $("form").submit(function (event) {
+  //   event.preventDefault();
+  // });
+
+  
+  $('#new-tweet-submit').submit(function(event) {
+    alert("Handler for .submit() called.");
+    event.preventDefault();
+    let serialData = $(this).serialize();
+    console.log("🚀 ~ file: client.js ~ line 90 ~ $ ~ serialData", serialData);
+    $.post("/tweets",serialData)
+      .done(()=> {
+        $.get("/tweets", function(data, status) {
+          renderTweets(data);
+        });
+
+      });
+  });
+
+  
 });
+
+
+
+
+// add an event listener that listens for the submit event - done
+
+// prevent the default behaviour of the submit event (data submission and page refresh) - done
+
+// create an AJAX POST request in client.js that sends the form data to the server.
