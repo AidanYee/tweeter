@@ -82,13 +82,19 @@ const loadTweets = () => {
 
 $(document).ready(function() {
   //renderTweets(tweetData);
-  
+  loadTweets();
+
   $('#new-tweet-submit').submit(function(event) {
     //alert("Handler for .submit() called.");
     event.preventDefault();
     let serialData = $(this).serialize();
-    $.post("/tweets",serialData);
-    loadTweets();
+    $.post("/tweets",serialData)  .done(()=> {
+      $.get("/tweets", function(data, status) {
+        renderTweets(data);
+      });
+
+    });
+    
   });
   
 });
