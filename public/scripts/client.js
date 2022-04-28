@@ -41,6 +41,7 @@ const createTweetElement = function(data) {
 
 // loops through tweets and adds them to '.tweet-container'
 const renderTweets = function(data) {
+  // clears tweet container to prevent repeat tweets
   $('.tweet-container').empty();
   for (let tweet of data) {
     $('.tweet-container').prepend(createTweetElement(tweet));
@@ -60,23 +61,37 @@ const loadTweets = () => {
 };
 
 
+// hides .tweet-error div
+const errorMessage = $(".tweet-error");
+errorMessage.hide();
+
+
 $(document).ready(function() {
+
+
   //renders all tweets
   loadTweets();
 
   $('#new-tweet-submit').submit(function(event) {
     // stops the regular form post method from firing
     event.preventDefault();
-
     const textArea = $(this).children("textarea");
-    console.log("🚀 ~ file: client.js ~ line 64 ~ $ ~ textArea", textArea);
     const inputText = textArea.val();
-    console.log("🚀 ~ file: client.js ~ line 66 ~ $ ~ inputText", inputText);
-
+    // tweet validation with jQuery
     if (!inputText) {
-      return alert("Go on...type someting!");
+      const emptyError = $(".tweet-error").text(`🚀 Go on...no one will retweet nothing! 🚀`);
+      emptyError.hide();
+      emptyError.css({
+        'border-bottom': '1px solid red',
+        'display': 'inline-block',
+      }).slideDown(1500).fadeOut(5000);
     } else if (inputText.length > 140) {
-      return alert("Go on...type someting!");
+      const limitError = $(".tweet-error").text(`✂️  Keep it under 140 characters bucko  ✂️`);
+      limitError.hide();
+      limitError.css({
+        'border-bottom': '1px solid red',
+        'display': 'inline-block',
+      }).slideDown(1500).fadeOut(7000);
     } else {
     // creates a text string in standard URL-encoded notation
       let serialData = $(this).serialize();
