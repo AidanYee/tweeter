@@ -86,8 +86,12 @@
         <div class="tweet-error"></div>
         <h2>Compose Tweet</h2>
         <form id="new-tweet-submit" method="POST" action="/tweets">
-          <label for="tweet-text">What is driving you batty!?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <label for="tweet-text"></label>
+          <textarea
+            name="text"
+            placeholder="What's driving you batty today?"
+            id="tweet-text"
+          ></textarea>
           <div>
             <button id="tweet-button" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>

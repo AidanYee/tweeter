@@ -10,22 +10,22 @@
   display: flex;
   justify-content: flex-start;
   padding: 1.5em 1.5em;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #6272a4;
 }
 
 .handle {
-  color: grey;
+  color: #6272a4;
 }
 
 .social-icons {
-  color: #4056a1;
+  color: #bd93f9;
 }
 
 article {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 3px solid black;
+  border: 3px solid #6272a4;
   margin: 20px;
 }
 
@@ -53,18 +53,18 @@ article > footer {
 
 /* Tweet box shadow */
 article:hover {
-  box-shadow: 10px 10px;
+  box-shadow: 10px 10px #383a59;
 }
 
 /* report..? idk button */
 i.fa.fa-flag:hover {
-  color: #c8a700;
+  color: #8be9fd;
 }
 /* re-tweet button */
 i.fa.fa-retweet:hover {
-  color: #c8a700;
+  color: #ffb86c;
 }
 /* like button */
 i.fa.fa-heart:hover {
-  color: #c8a700;
+  color: #50fa7b;
 }

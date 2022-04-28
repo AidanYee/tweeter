@@ -10,9 +10,9 @@ const onKeyUp = function() {
   $(".counter").html(remainingChar);
   if (remainingChar < 0) {
     //css color red
-    $(".counter").css("color", "red");
+    $(".counter").css("color", "#ff5555");
   } else {
     //css color black
-    $(".counter").css("color", "#3a3832");
+    $(".counter").css("color", "#6272a4");
   }
 };
