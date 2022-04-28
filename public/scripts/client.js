@@ -4,6 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// prevent Cross-Site Scripting (XSS) with escape function below
+const escape2 = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 // creates tweet template
 const createTweetElement = function(data) {
   let $tweet = $(`
@@ -14,7 +21,7 @@ const createTweetElement = function(data) {
             <span class ="handle">${data.user.handle}</span>
       </header>
         <div class = "tweet">
-          ${data.content.text}
+          <p>${escape2(data.content.text)}</p>
         </div>
           <footer class="tweet-footer">
             <span> ${timeago.format(data.created_at)}</span>
@@ -34,6 +41,7 @@ const createTweetElement = function(data) {
 
 // loops through tweets and adds them to '.tweet-container'
 const renderTweets = function(data) {
+  $('.tweet-container').empty();
   for (let tweet of data) {
     $('.tweet-container').prepend(createTweetElement(tweet));
   }
@@ -49,12 +57,6 @@ const loadTweets = () => {
       renderTweets(response);
     },
   });
-};
-
-const escape = function(str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
 };
 
 
