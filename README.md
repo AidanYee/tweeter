@@ -4,6 +4,8 @@ Tweeter is a simple, single-page Twitter clone. The theme of my Tweeter is based
 
 ## Screenshots
 
+![gif-demo](docs/Demo#2.gif)
+
 ![mobile](docs/mobile.png)
 
 ![desktop](docs/desktop2.png)
