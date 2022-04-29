@@ -3,7 +3,11 @@
 Tweeter is a simple, single-page Twitter clone. The theme of my Tweeter is based off of my personal favourite dark mode theme [Dracula](https://draculatheme.com/).
 
 ## Screenshots
-![Responsive design & Tweet Demo](docs/Re-sizing+tweet-demop.gif)
+
+![mobile](docs/mobile.png)
+
+![desktop](docs/desktop2.png)
+
 ## Getting Started
 
 1. Fork this repository
