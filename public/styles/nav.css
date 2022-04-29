@@ -1,7 +1,7 @@
 nav {
   font-family: "Bungee", cursive;
   color: #8be9fd;
-  background-color: #282a36;
+  background-color: #RRGGBBAA;
   display: flex;
   height: 120px;
   width: 100%;
@@ -31,4 +31,11 @@ nav {
 .arrow {
   color: #6272a4;
   padding-top: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #383a59;
+    text-shadow: none;
+  }
 }

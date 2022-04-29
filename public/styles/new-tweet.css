@@ -25,6 +25,11 @@
   color: #f8f8f2;
 }
 
+#new-tweet textarea::after {
+  content: "\a";
+  white-space: pre;
+}
+
 ::placeholder {
   color: #44475a;
 }
@@ -60,4 +65,10 @@
   justify-content: flex-end;
   font-family: Bungee, sans-serif;
   color: #6272a4;
+}
+
+@media only screen and (min-width: 1024px) {
+  .new-tweet {
+    margin-top: 120px;
+  }
 }

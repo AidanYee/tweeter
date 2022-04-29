@@ -79,15 +79,17 @@ $(document).ready(function() {
     const inputText = textArea.val();
     // tweet validation with jQuery
     if (!inputText) {
-      const emptyError = $(".tweet-error").text(`🧄 Go on...no one will retweet nothing! 🧄`);
+      const emptyError = $(".tweet-error").text(`⚰️ You better write something before clicking that button....or else ⚰️`);
       emptyError.hide();
       emptyError.css({
+        'color': '#ff5555',
         'display': 'inline-block',
       }).slideDown(1500).fadeOut(5000);
     } else if (inputText.length > 140) {
       const limitError = $(".tweet-error").text(`🧛‍♂️ Keep it under 140 characters. Do you not know how to COUNT? 🧛‍♂️`);
       limitError.hide();
       limitError.css({
+        'color': '#ff5555',
         'display': 'inline-block',
       }).slideDown(1500).fadeOut(7000);
     } else {

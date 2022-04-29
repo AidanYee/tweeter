@@ -5,10 +5,21 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 15%;
+  padding-top: 20%;
   background-color: #383a59;
   /* background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png"); */
-  row-gap: 0px;
   text-align: center;
   color: #ff79c6;
+}
+
+@media only screen and (min-width: 1024px) {
+  .main-header {
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    border-radius: 25px;
+    padding-top: 5%;
+    float: left;
+    width: 35%;
+    margin-top: 15%;
+    margin-left: 125px;
+  }
 }
